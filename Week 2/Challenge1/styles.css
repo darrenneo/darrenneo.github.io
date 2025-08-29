@@ -1,0 +1,122 @@
+/* styles.css - Challenge #1 (Skeleton) */
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aliceblue;
+    color: deeppink;
+    margin: 0;
+}
+
+.tagline {
+    color: black;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.site-header h1 {
+    font-weight: bold;
+}
+
+.site-footer p {
+    font-weight: normal;
+}
+
+.container {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .hero {
+    border-radius: 2%;
+    border: solid;
+    border-color: black;
+} */
+
+.mascot-placeholder {
+    margin: auto;
+    border: solid;
+    border-color: black;
+    background-color: white;
+    border-radius: 2%;
+    width: 300px;
+    height: 300px;
+
+}
+
+#mascot-image {
+    display: flex;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 8%;
+    margin: auto;
+}
+
+.about {
+    margin: 8px;
+    text-align: left;
+}
+
+.about h2,
+p {
+    color: black;
+    margin: 15px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.buy-tickets {
+    border-radius: 0.45em;
+    height: 40px;
+    border-color: aqua;
+    background-color: greenyellow;
+    color: white;
+    margin-right: 15px;
+    font-weight: bold;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.buy-tickets:hover {
+    background-color: chartreuse;
+    cursor: pointer;
+}
+
+.make-donation {
+    border-radius: 0.45em;
+    height: 40px;
+    border-color: pink;
+    background-color: blue;
+    color: white;
+    margin-right: 15px;
+    font-weight: bold;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+
+}
+
+.make-donation:hover {
+    background-color: mediumblue;
+    cursor: pointer;
+}
+
+@media (max-width: 400px) {
+    .actions {
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.site-footer {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    border-top: solid 1px;
+    border-color: grey;
+}
