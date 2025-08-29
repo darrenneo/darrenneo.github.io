@@ -5,376 +5,352 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Justin Bieber Fan Page</title>
-   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap');
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: #fff0f3;
-        color: #333;
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-
-    header {
-        background: linear-gradient(90deg, #d9376e, #ff6f91);
-        color: white;
-        padding: 20px 20px;
-        text-align: center;
-        font-family: 'Pacifico', cursive;
-        box-shadow: 0 4px 15px rgba(217, 55, 110, 0.6);
-        letter-spacing: 2px;
-        user-select: none;
-        font-size: 2rem;
-    }
-
-    main {
-        flex: 1;
-        max-width: 900px;
-        margin: 0 auto 60px;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        padding-bottom: 40px;
-    }
-
-    /* Hero Section */
-    .hero {
-        position: relative;
-        width: 100%;
-        height: 70vh;
-        max-height: 600px;
-        overflow: hidden;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        user-select: none;
-    }
-
-    .carousel-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-
-    .carousel {
-        display: flex;
-        transition: transform 1s ease-in-out;
-    }
-
-    .carousel img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(217, 55, 110, 0.6));
-        z-index: 1;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .hero-content h1 {
-        font-family: 'Pacifico', cursive;
-        font-size: 4rem;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-        margin-bottom: 15px;
-        animation: fadeInUp 1.5s ease forwards;
-    }
-
-    .hero-content p {
-        font-size: 1.5rem;
-        margin-bottom: 25px;
-        font-weight: 600;
-        text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
-        animation: fadeInUp 2.5s ease forwards;
-        opacity: 0;
-        animation-fill-mode: forwards;
-        animation-delay: 1s;
-    }
-
-    .hero-content button {
-        background: #ff6f91;
-        border: none;
-        padding: 15px 45px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        border-radius: 30px;
-        color: white;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(255, 111, 145, 0.6);
-        transition: background 0.3s ease;
-        animation: fadeInUp 3.5s ease forwards;
-        opacity: 0;
-        animation-fill-mode: forwards;
-        animation-delay: 1.8s;
-    }
-
-    .hero-content button:hover {
-        background: #d9376e;
-    }
-
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        100% {
-            opacity: 1;
-            transform: translateY(0);
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff0f3;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-    }
 
-    /* Sections */
-    section {
-        padding: 30px 40px;
-    }
-
-    h2 {
-        color: #d9376e;
-        margin-bottom: 20px;
-        font-weight: 600;
-        border-left: 6px solid #d9376e;
-        padding-left: 15px;
-        font-size: 1.9rem;
-        letter-spacing: 1px;
-    }
-
-    p {
-        font-size: 1.1rem;
-        color: #fff0f3;
-        margin-bottom: 25px;
-    }
-
-    ul {
-        list-style: inside square;
-        color: #666;
-        max-width: 700px;
-        margin: 0 auto 40px;
-        font-size: 1.1rem;
-    }
-
-    ul li {
-        margin-bottom: 12px;
-        padding-left: 6px;
-        transition: color 0.3s ease;
-        cursor: default;
-    }
-
-    ul li:hover {
-        color: #d9376e;
-    }
-
-    /* Music Playlist */
-    .playlist {
-        max-width: 700px;
-        margin: 0 auto 40px;
-    }
-
-    .playlist iframe {
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 5px 20px rgba(217, 55, 110, 0.3);
-        border: none;
-        height: 380px;
-    }
-
-    /* Social Media */
-    .social {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .social a {
-        display: inline-block;
-        margin: 0 15px;
-        color: #d9376e;
-        font-size: 2rem;
-        transition: transform 0.3s ease, color 0.3s ease;
-        text-decoration: none;
-    }
-
-    .social a:hover {
-        color: #ff6f91;
-        transform: scale(1.2);
-    }
-
-    /* Fan Comments */
-    .comments {
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: left;
-    }
-
-    .comment-form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-
-    .comment-form textarea {
-        resize: vertical;
-        padding: 10px;
-        font-size: 1rem;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        min-height: 80px;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .comment-form button {
-        align-self: flex-end;
-        background: #d9376e;
-        border: none;
-        padding: 12px 25px;
-        color: white;
-        font-weight: 600;
-        font-size: 1rem;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
-
-    .comment-form button:hover {
-        background: #ff6f91;
-    }
-
-    .comment-list {
-        border-top: 1px solid #eee;
-        padding-top: 20px;
-    }
-
-    .comment {
-        background: #fff0f3;
-        padding: 15px 20px;
-        border-radius: 12px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 8px rgba(217, 55, 110, 0.1);
-        font-size: 1rem;
-        white-space: pre-wrap;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
         header {
-            font-size: 1.5rem;
-            padding: 15px 10px;
+            background: linear-gradient(90deg, #d9376e, #ff6f91);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(217, 55, 110, 0.6);
+            user-select: none;
         }
 
         main {
-            margin: 20px 15px 40px;
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding-bottom: 40px;
         }
 
+        /* HERO SECTION */
         .hero {
-            height: 50vh;
-            max-height: 350px;
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            max-height: 600px;
+            overflow: hidden;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(217, 55, 110, 0.6));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards;
         }
 
         .hero-content p {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            animation: fadeInUp 2.5s ease forwards;
+            animation-delay: 1s;
         }
 
         .hero-content button {
-            padding: 12px 30px;
-            font-size: 1rem;
+            background: #ff6f91;
+            border: none;
+            padding: 15px 45px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 111, 145, 0.6);
+            transition: background 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 3.5s ease forwards;
+            animation-delay: 1.8s;
+        }
+
+        .hero-content button:hover {
+            background: #d9376e;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         section {
-            padding: 20px 25px;
+            padding: 30px 40px;
         }
-    }
 
-    /* Carousel Slide */
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+        h2 {
+            color: #d9376e;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-left: 6px solid #d9376e;
+            padding-left: 15px;
+            font-size: 1.9rem;
+            letter-spacing: 1px;
+        }
 
-    .carousel {
-        display: flex;
-        transition: transform 1s ease-in-out;
-    }
+        p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 25px;
+        }
 
-    .carousel img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-</style>
+        ul {
+            list-style: inside square;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
 
+        ul li {
+            margin-bottom: 12px;
+            padding-left: 6px;
+            transition: color 0.3s ease;
+        }
 
-    <!-- FontAwesome CDN for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        ul li:hover {
+            color: #d9376e;
+        }
+
+        .playlist {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .playlist iframe {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(217, 55, 110, 0.3);
+            border: none;
+            height: 380px;
+        }
+
+        .social {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .social a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #d9376e;
+            font-size: 2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social a:hover {
+            color: #ff6f91;
+            transform: scale(1.2);
+        }
+
+        .comments {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .comment-form textarea {
+            resize: vertical;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            min-height: 80px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .comment-form button {
+            align-self: flex-end;
+            background: #d9376e;
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .comment-form button:hover {
+            background: #ff6f91;
+        }
+
+        .comment-list {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .comment {
+            background: #fff0f3;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(217, 55, 110, 0.1);
+            font-size: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.5rem;
+                padding: 15px 10px;
+            }
+
+            main {
+                margin: 20px 15px 40px;
+            }
+
+            .hero {
+                height: 50vh;
+                max-height: 350px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-content button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 20px 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        Justin Bieber Fan Page
-    </header>
+    <header>Justin Bieber Fan Page</header>
 
     <main>
-        <!-- Hero Section -->
-<section class="hero" aria-label="Justin Bieber hero section">
-    <div class="carousel-container">
-        <div class="carousel">
-            <img src="/Fanpage/justin1.jpg" alt="Justin Bieber on stage 1" />
-            <img src="/Fanpage/justin2.jpg" alt="Justin Bieber on stage 2" />
-            <img src="/Fanpage/justin3.jpg" alt="Justin Bieber on stage 3" />
-            <img src="/Fanpage/justin4.jpg" alt="Justin Bieber on stage 4" />
-            <img src="/Fanpage/justin5.jpg" alt="Justin Bieber on stage 5" />
-            <img src="/Fanpage/justin6.jpg" alt="Justin Bieber on stage 6" />
-            <img src="/Fanpage/justin7.jpg" alt="Justin Bieber on stage 7" />
-        </div>
-    </div>
-    <div class="hero-content">
-        <h1>Welcome to the Beliebers' World</h1>
-        <p>Discover the journey, music, and moments of Justin Bieber</p>
-        <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Explore More</button>
-    </div>
-</section>
+        <!-- Hero Section with Carousel -->
+        <section class="hero" aria-label="Justin Bieber hero section">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="/Fanpage/justin1.jpg" alt="Justin Bieber on stage 1" />
+                    <img src="/Fanpage/justin2.jpg" alt="Justin Bieber on stage 2" />
+                    <img src="/Fanpage/justin3.jpg" alt="Justin Bieber on stage 3" />
+                    <img src="/Fanpage/justin4.jpg" alt="Justin Bieber on stage 4" />
+                    <img src="/Fanpage/justin5.jpg" alt="Justin Bieber on stage 5" />
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Welcome to the Beliebers' World</h1>
+                <p>Discover the journey, music, and moments of Justin Bieber</p>
+                <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Explore
+                    More</button>
+            </div>
+        </section>
 
+        <!-- About Section -->
         <section id="about">
             <h2>About Justin Bieber</h2>
-            <p style="color: #444;">
+            <p>
                 Justin Bieber is a Canadian singer and songwriter who rose to fame as a teenager with his debut album
                 "My World 2.0" in 2010. Known for hits like "Baby," "Sorry," and "Peaches," Justin has become a global
                 pop icon.
             </p>
         </section>
 
+        <!-- Music -->
         <section id="music">
             <h2>Popular Songs</h2>
             <ul>
@@ -386,43 +362,46 @@
             </ul>
         </section>
 
+        <!-- Playlist -->
         <section id="playlist">
             <h2>Spotify Playlist</h2>
             <div class="playlist">
-                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                <iframe
                     src="https://open.spotify.com/embed/playlist/37i9dQZF1DXc2aPBXGmXrt?utm_source=generator&theme=0"
-                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    width="100%" height="352" frameborder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
             </div>
         </section>
 
+        <!-- Social Media -->
         <section id="social">
             <h2>Follow Justin</h2>
             <div class="social">
-                <a href="https://www.instagram.com/justinbieber" target="_blank" rel="noopener"
-                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/justinbieber" target="_blank" rel="noopener" aria-label="Twitter"><i
+                <a href="https://www.instagram.com/justinbieber" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/justinbieber" target="_blank" aria-label="Twitter"><i
                         class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/justinbieber" target="_blank" rel="noopener" aria-label="Facebook"><i
+                <a href="https://www.facebook.com/justinbieber" target="_blank" aria-label="Facebook"><i
                         class="fab fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@justinbieber" target="_blank" rel="noopener"
-                    aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.youtube.com/@justinbieber" target="_blank" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
             </div>
         </section>
 
+        <!-- Comments -->
         <section id="comments">
             <h2>Fan Comments</h2>
-            <form class="comment-form" id="commentForm" aria-label="Add your comment about Justin Bieber">
+            <form class="comment-form" id="commentForm">
                 <textarea id="commentInput" placeholder="Write your comment..." required></textarea>
                 <button type="submit">Post Comment</button>
             </form>
-            <div class="comment-list" id="commentList" aria-live="polite"></div>
+            <div class="comment-list" id="commentList"></div>
         </section>
     </main>
 
+    <!-- Comment Script -->
     <script>
-        // Simple comment posting logic
         const form = document.getElementById('commentForm');
         const input = document.getElementById('commentInput');
         const list = document.getElementById('commentList');
@@ -440,26 +419,21 @@
         });
     </script>
 
+    <!-- Carousel Script -->
     <script>
-    const carousel = document.querySelector('.carousel');
-    const totalImages = document.querySelectorAll('.carousel img').length;
-    let index = 0;
+        const carousel = document.querySelector('.carousel');
+        const totalImages = document.querySelectorAll('.carousel img').length;
+        let index = 0;
 
-    function slide() {
-        index++;
-        if (index >= totalImages) {
-            index = 0; // Reset to the first image
+        function slide() {
+            index++;
+            if (index >= totalImages) index = 0;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
         }
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }
 
-    setInterval(slide, 3000); // Change image every 3 seconds
-</script>
-    
+        setInterval(slide, 3000); // Every 3 seconds
+    </script>
+
 </body>
 
-
 </html>
-
-
-
